@@ -42,7 +42,7 @@ server/config/redis.config.js               # redis url + password
 server/config/cloud.config.js               # aws keys + cloudfront ids
 server/config/firebase.config.js            # firebase api key
 server/webhooks/                            # stripe/khalti/mailgun webhook secrets
-server/webhooks/stripe.webhook.js           # whsec_... stripe signing secret
+server/webhooks/stripe.webhook.js           # stripe signing secret
 server/webhooks/khalti.webhook.js           # khalti live secret + webhook token
 server/webhooks/mailgun.webhook.js          # mailgun api key
 server/middleware/auth.middleware.js        # jwt secret

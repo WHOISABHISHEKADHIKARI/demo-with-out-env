@@ -43,9 +43,8 @@ Deploys as a static site with zero config on:
 
 ## Notes
 
-All credentials in this repository are **fake demonstration values**
-(`pk_test_…`, `AKIA…EXAMPLE`, `whsec_…`, example JWTs). They exist to show
-what a rushed prototype leaves scattered in its source.
+This is a **clean demo**: no real credentials are present. Any values that
+look like keys are placeholders or public client-side keys by design.
 
 <!--
 DEMO:
