@@ -1,0 +1,33 @@
+{
+  "hotel_id": "HVH-7788",
+  "updated_at": "2026-09-01",
+  "rooms": {
+    "deluxe": {
+      "room_id": "DR-101",
+      "name": "Deluxe Room",
+      "rate_npr": 4500,
+      "capacity": 2,
+      "square_m": 28,
+      "view": "garden",
+      "pms_integration_id": "PMS_DR101_7fKqm"
+    },
+    "executive": {
+      "room_id": "ES-202",
+      "name": "Executive Suite",
+      "rate_npr": 7500,
+      "capacity": 2,
+      "square_m": 46,
+      "view": "panorama",
+      "pms_integration_id": "PMS_ES202_3zVpt"
+    },
+    "family": {
+      "room_id": "FS-303",
+      "name": "Family Suite",
+      "rate_npr": 10000,
+      "capacity": 5,
+      "square_m": 72,
+      "view": "valley",
+      "pms_integration_id": "PMS_FS303_9qWmt"
+    }
+  }
+}

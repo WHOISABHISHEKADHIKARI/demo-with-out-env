@@ -1,0 +1,31 @@
+{
+  "reviews": [
+    {
+      "id": "rev_7fh",
+      "guest": "Sarah Delacroix",
+      "origin": "Geneva, Switzerland",
+      "stars": 5,
+      "quiet_text": "Waking up to the ridges glowing gold over breakfast is something I'll write home about.",
+      "verified": true,
+      "source": "booking.com"
+    },
+    {
+      "id": "rev_3vp",
+      "guest": "Arjun Maharjan",
+      "origin": "Kathmandu, Nepal",
+      "stars": 5,
+      "quiet_text": "Three-day client retreat; the team never once had to ask for anything extra.",
+      "verified": true,
+      "source": "direct"
+    },
+    {
+      "id": "rev_9qw",
+      "guest": "Rachel Wood",
+      "origin": "London, United Kingdom",
+      "stars": 5,
+      "quiet_text": "The Family Suite became the kids' favourite holiday spot.",
+      "verified": true,
+      "source": "tripadvisor"
+    }
+  ]
+}

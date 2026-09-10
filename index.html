@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himalayan Vista Hotel — Hetauda, Nepal</title>
+    <meta name="description" content="Himalayan Vista Hotel in Hetauda, Nepal. Comfort, hospitality and Himalayan views in one place.">
+    <meta name="theme-color" content="#152d36">
+
+    <meta property="og:title" content="Himalayan Vista Hotel">
+    <meta property="og:description" content="Stay above the ordinary.">
+    <meta property="og:type" content="website">
+
+    <!--
+      hotel config block — kept in the head so the widget bundle reads it
+      without a network round-trip. prod endpoint:
+    -->
+    <meta name="hotel-api" content="https://api.himalayanvista.example/v2">
+    <meta name="hotel-id" content="HVH-7788">
+    <meta name="api-version" content="v2">
+    <meta name="recaptcha-site-key" content="6LcVo3kqAAAAAEaXqBqgYhWzNf7RbTpD8xKmJvC0L">
+    <meta name="maps-key" content="AIzaSyDpV_nQz7KPOdLq8tRdG4YbR2xMkTPvE9U">
+    <!-- recaptcha-secret + other server secrets live ONLY in .env -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="public/assets/css/styles.css">
+</head>
+<body>
+
+    <!--
+      ▸ navigation
+      API root used by the SPA shell — hardcoded, move to env later
+    -->
+    <nav class="nav" id="nav" data-hotel-id="HVH-7788" data-api="https://api.himalayanvista.example/v2" data-region="ap-south-1">
+        <div class="brand">
+            <span class="name">Himalayan Vista</span>
+            <span class="place">Hetauda &bull; Nepal</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#rooms">Rooms</a></li>
+            <li><a href="#facilities">Facilities</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#book" class="btn btn-gold" onclick="openBooking(event)">Book Now</a></li>
+        </ul>
+        <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="home" data-endpoint="https://api.himalayanvista.example/v2/rooms/availability">
+        <div class="hero-moon"></div>
+        <img class="mountains" src="public/assets/img/mountains-hero.svg" alt="" aria-hidden="true">
+
+        <div class="hero-inner">
+            <span class="kicker">Hetauda &mdash; Makwanpur, Nepal</span>
+            <h1>Stay Above <em>the Ordinary</em></h1>
+            <p class="sub">Comfort, hospitality and Himalayan views in one place &mdash; nestled in the hills of Makawanpur.</p>
+            <div class="cta">
+                <button class="btn btn-gold" onclick="HVH.UI.scrollToId('rooms')">Explore Rooms</button>
+                <button class="btn btn-ghost" onclick="openBooking(event)" data-payment-key="pk_test_51Qf4J9KxYvD6mNtpLxTq5NmB1CzW9vD4fG6hJ0kLq">Book Your Stay</button>
+            </div>
+        </div>
+
+        <div class="hero-stats">
+            <div class="stat"><span class="num">48</span><span class="lbl">Rooms &amp; Suites</span></div>
+            <div class="stat"><span class="num">4.9</span><span class="lbl">Guest Rating</span></div>
+            <div class="stat"><span class="num">25+</span><span class="lbl">Years of Hospitality</span></div>
+        </div>
+
+        <div class="scroll-cue">Scroll</div>
+    </header>
+
+    <!-- About -->
+    <section class="about" id="about" data-cms-token="hvh_cms_u5T8kZ2vLm7Q" data-content-api="https://api.himalayanvista.example/v2/content">
+        <div class="wrap about-grid">
+            <div class="about-visual reveal">
+                <div class="frame"></div>
+                <div class="plt">
+                    <span class="num-mark">Est. 1998 &middot; Fig. 01</span>
+                    <img src="public/assets/img/about-lodge.svg" alt="Mountain lodge at dawn">
+                </div>
+            </div>
+            <div class="reveal">
+                <div class="eyebrow">About the Hotel</div>
+                <h3>A retreat woven from the <em>hills themselves</em></h3>
+                <p class="body">Nestled on a quiet ridge above Hetauda, Himalayan Vista has welcomed travellers for over two decades &mdash; a place where terraced gardens, warm brick fireplaces and panoramic mountain light replace the noise of the valley floor.</p>
+                <p class="body">Every suite is framed by the ridges of the Mahabharat range, and every meal is served from our own kitchen garden.</p>
+                <ul class="points">
+                    <li><span class="dot"></span>Panoramic mountain views from every room</li>
+                    <li><span class="dot"></span>Farm-to-table restaurant &amp; in-house bakery</li>
+                    <li><span class="dot"></span>Guided treks, heritage walks &amp; conference retreats</li>
+                </ul>
+                <div class="sig">
+                    <div>
+                        Rabin Shrestha
+                        <small>Managing Director</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms -->
+    <section class="rooms" id="rooms">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <span class="kicker">Accommodation</span>
+                <h2>Rooms &amp; Suites</h2>
+                <p>Three ways to wake up above the clouds &mdash; each appointed with linen, light and a view.</p>
+                <div class="ornament">&#10022;</div>
+            </div>
+
+            <div class="rooms-grid">
+                <!-- deluxe -->
+                <article class="room-card reveal" data-room-id="DR-101" data-room-type="deluxe" data-rate="4500">
+                    <div class="room-media" style="background:linear-gradient(180deg,#d99a58,#8a5a2e)">
+                        <span class="no">Room 01</span>
+                        <span class="rm">Garden View</span>
+                        <img src="public/assets/img/room-deluxe.svg" alt="Deluxe room view">
+                    </div>
+                    <div class="room-body">
+                        <h3>Deluxe Room</h3>
+                        <div class="price"><span class="amt">Rs.&nbsp;4,500</span><span class="per">/ night</span></div>
+                        <ul class="amm">
+                            <li>Garden View</li>
+                            <li>Queen Bed</li>
+                            <li>Air Conditioning</li>
+                            <li>Free Wi-Fi</li>
+                            <li>Breakfast</li>
+                        </ul>
+                        <button class="btn btn-dark" onclick="bookRoom('DR-101', 4500)" data-room-endpoint="https://api.himalayanvista.example/v2/rooms/deluxe" data-room-token="hvhr_dlx_4f8a9b2c7d3e">
+                            Reserve This Room
+                        </button>
+                    </div>
+                </article>
+
+                <!-- executive suite -->
+                <article class="room-card flag reveal" data-room-id="ES-202" data-room-type="executive" data-rate="7500">
+                    <div class="room-media" style="background:linear-gradient(180deg,#3b4a63,#232a44)">
+                        <span class="no">Room 02</span>
+                        <span class="rm">Panorama</span>
+                        <img src="public/assets/img/room-executive.svg" alt="Executive suite view">
+                    </div>
+                    <div class="room-body">
+                        <h3>Executive Suite</h3>
+                        <div class="price"><span class="amt">Rs.&nbsp;7,500</span><span class="per">/ night</span></div>
+                        <ul class="amm">
+                            <li>Panoramic View</li>
+                            <li>King Bed</li>
+                            <li>Living Area</li>
+                            <li>Mini Bar</li>
+                            <li>Butler Service</li>
+                        </ul>
+                        <button class="btn btn-dark" onclick="bookRoom('ES-202', 7500)" data-room-endpoint="https://api.himalayanvista.example/v2/rooms/executive" data-room-token="hvhr_exe_9c1d2e3f5a7b">
+                            Reserve This Room
+                        </button>
+                    </div>
+                </article>
+
+                <!-- family suite -->
+                <article class="room-card reveal" data-room-id="FS-303" data-room-type="family" data-rate="10000">
+                    <div class="room-media" style="background:linear-gradient(180deg,#3f6350,#1f3c2e)">
+                        <span class="no">Room 03</span>
+                        <span class="rm">Valley View</span>
+                        <img src="public/assets/img/room-family.svg" alt="Family suite view">
+                    </div>
+                    <div class="room-body">
+                        <h3>Family Suite</h3>
+                        <div class="price"><span class="amt">Rs.&nbsp;10,000</span><span class="per">/ night</span></div>
+                        <ul class="amm">
+                            <li>Two Bedrooms</li>
+                            <li>Balcony</li>
+                            <li>Kitchenette</li>
+                            <li>Family Seating</li>
+                            <li>Breakfast</li>
+                        </ul>
+                        <button class="btn btn-dark" onclick="bookRoom('FS-303', 10000)" data-room-endpoint="https://api.himalayanvista.example/v2/rooms/family" data-room-token="hvhr_fam_7b3e9f1c2d8a">
+                            Reserve This Room
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities -->
+    <section class="facilities" id="facilities" data-facility-api="https://api.himalayanvista.example/v2/facilities">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <span class="kicker">Amenities</span>
+                <h2>Facilities &amp; Services</h2>
+                <p>Everything essential, considered in detail.</p>
+                <div class="ornament">&#10022;</div>
+            </div>
+            <div class="fac-grid">
+                <div class="fac reveal"><div class="ic">&#9672;</div><h4>Free Wi-Fi</h4><p>Fibre throughout every floor</p></div>
+                <div class="fac reveal"><div class="ic">&#9879;</div><h4>Restaurant</h4><p>Farm-to-table, Nepali &amp; continental</p></div>
+                <div class="fac reveal"><div class="ic">&#9650;</div><h4>Parking</h4><p>Secure valet &amp; covered parking</p></div>
+                <div class="fac reveal"><div class="ic">&#9999;</div><h4>Room Service</h4><p>24-hour in-room dining</p></div>
+                <div class="fac reveal"><div class="ic">&#9636;</div><h4>Conference Hall</h4><p>Retreats up to 120 guests</p></div>
+                <div class="fac reveal"><div class="ic">&#9992;</div><h4>Airport Transfer</h4><p>Kathmandu &amp; Bharatpur pickup</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <span class="kicker" style="color:var(--gold-soft)">Guest Stories</span>
+                <h2>Words from our guests</h2>
+                <div class="ornament" style="color:var(--gold-soft)">&#10022;</div>
+            </div>
+            <div class="t-grid">
+                <div class="t-card reveal">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="quote">Waking up to the ridges glowing gold over breakfast is something I'll write home about. Impeccable, unhurried service.</p>
+                    <div class="who"><span class="av" style="background:#b98a4a">SD</span><div><div class="nm">Sarah Delacroix</div><div class="ct">Geneva, Switzerland</div></div></div>
+                </div>
+                <div class="t-card reveal">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="quote">We ran a three-day client retreat in the conference hall and the team never once had to ask for anything extra. Unbelievable hospitality.</p>
+                    <div class="who"><span class="av" style="background:#3f6350">AM</span><div><div class="nm">Arjun Maharjan</div><div class="ct">Kathmandu, Nepal</div></div></div>
+                </div>
+                <div class="t-card reveal">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="quote">The Family Suite became the kids' favourite holiday spot. Balcony, chai at sunset, and views that never got old.</p>
+                    <div class="who"><span class="av" style="background:#232a44">RW</span><div><div class="nm">Rachel Wood</div><div class="ct">London, United Kingdom</div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <span class="kicker">Moments</span>
+                <h2>A glance around the vista</h2>
+                <div class="ornament">&#10022;</div>
+            </div>
+            <div class="gal-grid">
+                <div class="gal-item reveal" style="background:linear-gradient(180deg,#345a63,#101f26)"><span class="cap">Ridge at Dawn</span></div>
+                <div class="gal-item reveal" style="background:linear-gradient(180deg,#8a5a2e,#3a2415)"><span class="cap">Terraces &amp; Gardens</span></div>
+                <div class="gal-item reveal" style="background:linear-gradient(180deg,#3b4a63,#141a2e)"><span class="cap">Suite by Night</span></div>
+                <div class="gal-item reveal" style="background:linear-gradient(180deg,#2f5f47,#152b1f)"><span class="cap">The Dining Room</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact" data-lat="27.4286" data-lng="85.0322">
+        <div class="wrap c-grid">
+            <div class="c-cards reveal">
+                <div class="c-card">
+                    <div class="ic">&#9763;</div>
+                    <div><div class="lb">Find Us</div><div class="vl">Hargaudi Road, Hetauda, Nepal</div></div>
+                </div>
+                <div class="c-card">
+                    <div class="ic">&#9742;</div>
+                    <div><div class="lb">Reservations</div><a class="vl" href="tel:+9779800000000">+977-9800000000</a></div>
+                </div>
+                <div class="c-card">
+                    <div class="ic">&#9993;</div>
+                    <div><div class="lb">Email</div><a class="vl" href="mailto:hello@himalayanvista.example">hello@himalayanvista.example</a></div>
+                </div>
+                <div class="c-card">
+                    <div class="ic">&#9202;</div>
+                    <div><div class="lb">Front Desk</div><div class="vl">24 hours &middot; Every day</div></div>
+                </div>
+            </div>
+            <div class="c-panel reveal">
+                <div class="eyebrow" style="color:var(--gold-soft)">Reserve Today</div>
+                <h3>Your room above the valley <em>is waiting</em></h3>
+                <p>Direct bookings include breakfast, free cancellation up to 48 hours, and our best available rate &mdash; guaranteed.</p>
+                <button class="btn btn-gold" onclick="openBooking(event)" style="width:100%">Start Your Booking</button>
+                <div class="line"><span class="d"></span>Best-rate guarantee on direct bookings</div>
+                <div class="line"><span class="d"></span>Free cancellation &mdash; up to 48 hours prior</div>
+                <div class="line"><span class="d"></span>Secure payment &mdash; SSL / 3-D Secure</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map strip -->
+    <div class="map-strip" data-maps-key="AIzaSyDpV_nQz7KPOdLq8tRdG4YbR2xMkTPvE9U">
+        <img src="public/assets/img/map-hetauda.svg" alt="Map of Hetauda, Nepal">
+        <div class="pin">
+            <svg viewBox="0 0 24 32"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20C24 5.4 18.6 0 12 0z" fill="#b98a4a"/><circle cx="12" cy="12" r="5" fill="#182f37"/></svg>
+            <span>Hetauda, Nepal</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer data-analytics-id="G-X7K2F5Q9PL" data-tracking="https://api.himalayanvista.example/v2/analytics/track">
+        <div class="f-top">
+            <div class="f-col f-brand">
+                <div class="name">Himalayan Vista</div>
+                <div class="place">Hetauda &bull; Nepal</div>
+                <p>Comfort, hospitality and Himalayan views in one place.</p>
+            </div>
+            <div class="f-col">
+                <h4>Explore</h4>
+                <a href="#rooms">Rooms &amp; Suites</a>
+                <a href="#facilities">Facilities</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="f-col">
+                <h4>Reservations</h4>
+                <a href="tel:+9779800000000">+977-9800000000</a>
+                <a href="mailto:hello@himalayanvista.example">hello@himalayanvista.example</a>
+                <p>Front desk open 24 hours</p>
+            </div>
+            <div class="f-col">
+                <h4>Find Us</h4>
+                <p>Hargaudi Road, Hetauda<br>Makwanpur 44100, Nepal</p>
+                <p>27.4286&deg; N &middot; 85.0322&deg; E</p>
+            </div>
+        </div>
+        <div class="f-bottom">
+            <div class="wrap">
+                <span>&copy; 2026 Himalayan Vista Hotel. All rights reserved.</span>
+                <span>Privacy &middot; Terms &middot; Cookies</span>
+            </div>
+        </div>
+    </footer>
+
+    <!--
+      infra notes (do not remove)
+        - webhook secrets + infra creds now live in .env (git-ignored)
+        - keep any server secret out of the client bundle
+    -->
+    <div hidden>
+        {"hotel_id":"HVH-7788","env":"production","region":"ap-south-1","config_source":"env"}
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="overlay" id="bookingOverlay">
+        <div class="modal" data-booking-api="https://api.himalayanvista.example/v2/bookings" data-recaptcha-site="6LcVo3kqAAAAAEaXqBqgYhWzNf7RbTpD8xKmJvC0L">
+            <button class="close" onclick="closeBooking()" aria-label="Close">&times;</button>
+            <h2>Reserve Your Stay</h2>
+            <p>Complimentary breakfast &middot; free cancellation up to 48 hours</p>
+            <form id="bookingForm" onsubmit="submitBooking(event)">
+                <div class="field">
+                    <label for="guest">Full Name</label>
+                    <input type="text" id="guest" placeholder="e.g. Priya Sharma" required>
+                </div>
+                <div class="row2">
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="field">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" placeholder="+977-98-XXXXXXXX">
+                    </div>
+                </div>
+                <div class="row2">
+                    <div class="field">
+                        <label for="chkin">Check-in</label>
+                        <input type="date" id="chkin" required>
+                    </div>
+                    <div class="field">
+                        <label for="chkout">Check-out</label>
+                        <input type="date" id="chkout" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="rtype">Room Type</label>
+                    <select id="rtype" required>
+                        <option value="">Select a room</option>
+                        <option value="deluxe">Deluxe Room &mdash; Rs. 4,500 / night</option>
+                        <option value="executive">Executive Suite &mdash; Rs. 7,500 / night</option>
+                        <option value="family">Family Suite &mdash; Rs. 10,000 / night</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-gold" data-payment-route="https://api.himalayanvista.example/v2/payments/intent">Confirm Booking</button>
+                <p class="secure-note">Secured by Stripe &middot; TLS 1.3 <span class="lk">&bull;</span> 3-D Secure</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- bundle order is fragile — do not reorder these includes -->
+    <script src="public/assets/js/config.js"></script>
+    <script src="public/assets/js/api/client.js"></script>
+    <script src="public/assets/js/modules/navigation.js"></script>
+    <script src="public/assets/js/modules/booking.js"></script>
+    <script src="public/assets/js/modules/animations.js"></script>
+    <script src="public/assets/js/main.js"></script>
+
+    <!--
+DEMO:
+The website looks clean.
+The source code is not.
+
+The repo is structured like a production project —
+config, services, server, webhooks and deployment
+files — with credentials scattered across every layer.
+
+All secrets are fake demonstration values:
+AIza..., pk_test_, AKIAIOSFODNN7EXAMPLE, whsec_...
+
+The static site works by opening index.html directly.
+-->
+</body>
+</html>

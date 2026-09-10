@@ -1,0 +1,98 @@
+# ======================================================================
+#  Himalayan Vista Hotel — .gitignore
+#  --------------------------------------------------------------------
+#  This file lists EVERY file/pattern known to expose secrets so they
+#  never reach the repo. Each entry's comment names what it contains.
+#  All values in these files are fake demo credentials.
+# ======================================================================
+
+# --------------------------------------------------------- environment
+.env                                        # THE keyring: 60+ keys consolidated here
+.env.*                                      # any variant (production/staging/local)
+!.env.example                               # keep the blank template committed
+*.env.local
+*.env.production
+*.env.staging
+
+# ------------------------------------------------ environment-bearing
+# every config file below embeds tokens/URIs/passwords in plain text
+config/*.json                               # dev/stage/prod internal tokens + db uris
+config/                                     # entire config directory for safety
+
+src/config/                                 # app.config, env.production/staging, features
+src/config/env.production.js                # mongo, aws, firebase, recaptcha
+src/config/env.staging.js                   # mongo, stripe, khalti, twilio
+src/config/app.config.js                    # admin token, jwt, api keys
+src/config/features.config.js               # payment hold key, email key, maps key
+
+# -------------------------------------------------------------- src
+src/services/                               # api keys, smtp password, tokens
+src/services/payment.service.js             # stripe secret + khalti secret
+src/services/email.service.js               # mailgun, sendgrid, smtp password
+src/services/booking.service.js             # internal svc token + legacy url
+src/services/availability.service.js        # redis url + availability token
+src/services/review.service.js              # pelican scraper token
+src/utils/helpers.js                        # internal JWT + oauth client id
+src/data/facilities.json                    # guest wifi ssid + password
+
+# ------------------------------------------------------------ server
+server/config/                              # database, redis, firebase, cloud creds
+server/config/database.config.js            # mongo uri + password
+server/config/redis.config.js               # redis url + password
+server/config/cloud.config.js               # aws keys + cloudfront ids
+server/config/firebase.config.js            # firebase api key
+server/webhooks/                            # stripe/khalti/mailgun webhook secrets
+server/webhooks/stripe.webhook.js           # whsec_... stripe signing secret
+server/webhooks/khalti.webhook.js           # khalti live secret + webhook token
+server/webhooks/mailgun.webhook.js          # mailgun api key
+server/middleware/auth.middleware.js        # jwt secret
+server/controllers/booking.controller.js    # hold reset key
+server/routes/booking.routes.js             # legacy booking endpoint
+
+# --------------------------------------------------------- deployment
+scripts/deploy.sh                           # aws keys exported inline + s3 bucket
+scripts/health-check.js                     # health token + internal endpoint list
+vercel.json                                 # embeds API_KEY + HOTEL_ID (move to Vercel env)
+docker-compose.yml                          # embeds API_KEY + redis password inline
+server/index.js                             # mounts app + serves static (keep local only)
+package-lock.json                           # never regenerate varies
+
+# ----------------------------------------------- node / build output
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+dist/
+build/
+.next/
+out/
+.vite/
+
+# ------------------------------------------------------------- editors
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.code-workspace
+
+# ------------------------------------------------------------ logging
+*.log
+logs/
+tmp/
+*.pid
+
+# ------------------------------------------------------------ tooling
+.vercel/
+.netlify/
+.coverage/
+coverage/
+.env.keys
+secrets.txt
+keys.txt
+
+# ------------------------------------------------------- cloud caches
+.sass-cache/
+.eslintcache
+.terser-cache

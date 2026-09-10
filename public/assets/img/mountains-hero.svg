@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 420" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+        <linearGradient id="mist" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#b98a4a" stop-opacity="0"/>
+            <stop offset=".5" stop-color="#e09a5a" stop-opacity=".28"/>
+            <stop offset="1" stop-color="#b98a4a" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+    <path fill="#35565f" opacity=".7" d="M0,420 L0,330 C90,300 150,262 235,258 C320,254 360,205 450,175 C540,145 610,230 700,245 C790,260 830,180 925,165 C1020,150 1080,235 1175,255 C1270,275 1330,225 1440,255 L1440,420 Z"/>
+    <path fill="#24434b" d="M0,420 L0,392 C110,372 175,322 265,315 C355,308 420,380 505,385 C590,390 645,288 740,272 C835,256 900,345 985,350 C1070,355 1140,300 1230,316 C1320,332 1380,392 1440,398 L1440,420 Z"/>
+    <path fill="#182f37" d="M0,420 L120,408 240,420 340,398 470,420 600,404 720,420 850,401 980,420 1100,406 1240,420 1340,404 1440,420 Z"/>
+    <ellipse cx="520" cy="418" rx="340" ry="34" fill="url(#mist)"/>
+    <ellipse cx="1080" cy="422" rx="300" ry="26" fill="url(#mist)"/>
+</svg>

@@ -1,0 +1,78 @@
+/* ============================================================
+   Himalayan Vista Hotel — base.css
+   Reset, design tokens, typography, base element styles
+   ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --ink: #16130f;
+    --pine: #152d36;
+    --pine-2: #1c3b43;
+    --cream: #f6f1e7;
+    --sand: #ece3d2;
+    --paper: #fdfbf6;
+    --gold: #b98a4a;
+    --gold-soft: #d8b26a;
+    --gold-line: rgba(185, 138, 74, 0.35);
+    --text: #4a443a;
+    --muted: #8a8172;
+    --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --shadow: 0 24px 60px -28px rgba(21, 45, 54, 0.35);
+    --shadow-sm: 0 12px 30px -18px rgba(21, 45, 54, 0.28);
+    --radius: 8px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body {
+    font-family: var(--sans);
+    color: var(--text);
+    background: var(--paper);
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .serif {
+    font-family: var(--serif);
+    font-weight: 500;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+::selection {
+    background: var(--gold);
+    color: var(--paper);
+}
+
+button {
+    font-family: inherit;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(185, 138, 74, 0.45);
+    border-radius: 8px;
+}
